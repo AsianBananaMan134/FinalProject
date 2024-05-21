@@ -18,14 +18,12 @@ public class Classroom {
      * @param name the name of the teacher.
      * @param width the width of the classroom in seats.
      * @param length the length of the classroom in seats.
-     * @param totalSeats the total amount of seats (length*width).
      */
-    public Classroom(String name, int width, int length, int totalSeats){
+    public Classroom(String name, int width, int length){
         this.name = name;
         StudentClass[][] attendanceSheet = new StudentClass[width][length];
         ArrayList<String> students = new ArrayList<String>();
-        this.totalSeats = totalSeats;
-        totalSeats = width*length;
+        int totalSeats = width*length;
         System.out.println(name + "'s Classroom is " + width + " seats by " + length + " seats, with " + totalSeats + " seats total!");
     }
     /**
@@ -75,7 +73,7 @@ public class Classroom {
     /**
      * Clears the attendanceSheet by setting them all to null.
      */
-    public void clearChart(){
+    public void clearSheet(){
         for(int row = 0; row < attendanceSheet.length; row++){
             for(int column = 0; column < attendanceSheet[row].length; column++){
                 attendanceSheet[row][column] = null;
@@ -158,4 +156,3 @@ public class Classroom {
         }
     }
 }
-
