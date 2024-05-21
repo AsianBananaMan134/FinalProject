@@ -21,25 +21,25 @@ public class Classroom {
      */
     public Classroom(String name, int width, int length){
         this.name = name;
-        StudentClass[][] attendanceSheet = new StudentClass[width][length];
-        ArrayList<String> students = new ArrayList<String>();
+        attendanceSheet = new StudentClass[width][length];
+        students = new ArrayList<String>();
         int totalSeats = width*length;
         System.out.println(name + "'s Classroom is " + width + " seats by " + length + " seats, with " + totalSeats + " seats total!");
     }
     /**
      * Assigns a student to a seat if the seat is not empty.
      * @param student a student object.
-     * @param row the row of attendanceSheet.
-     * @param column the column of the attendanceSheet.
+     * @param i the row of attendanceSheet.
+     * @param j the column of the attendanceSheet.
      * @return what position the student object was assigned to in the classroom.
      */
-    public String assignIndividualSeat(StudentClass student, int row, int column){
-        if(attendanceSheet[row][column] != null)
+    public String assignIndividualSeat(StudentClass student, int i, int j){
+        if(attendanceSheet[i][j] != null)
         {
             return "Seat taken!";
         }
-        attendanceSheet[row][column] = student;
-        return student + " was assigned to [" + row + "][" + column + "]";
+        attendanceSheet[i][j] = student;
+        return student + " was assigned to [" + i + "][" + j + "]";
     }
 
     /**
@@ -62,13 +62,13 @@ public class Classroom {
         }
     }
     /**
-     * @param row the row of attendanceSheet.
-     * @param column the column of the attendanceSheet.
+     * @param i the row of attendanceSheet.
+     * @param j the column of the attendanceSheet.
      * @return the empty attendanceSheet.
      */
-    public String remove(int row, int column){
-        attendanceSheet[row][column] = null;
-        return  "[" + row + "][" + column + "] is now empty";
+    public String remove(int i, int j){
+        attendanceSheet[i][j] = null;
+        return  "[" + i + "][" + j + "] is now empty";
     }
     /**
      * Clears the attendanceSheet by setting them all to null.
@@ -86,11 +86,11 @@ public class Classroom {
      * Preconditions: Chart is initialized with student objects.
      */
     public void setAttendance(){
-        for(int i = 0; i < attendanceSheet.length; i++){
-            for(int j = 0; j < attendanceSheet[i].length; j++){
-                Scanner in = new Scanner(System.in);
-                System.out.println("Is " + attendanceSheet[i][j].getName() + " here today?(y/n)");
-                attendanceSheet[i][j].setHere(in.nextBoolean());
+        for(int row = 0; row < attendanceSheet.length; row++){
+            for(int column = 0; column < attendanceSheet[row].length; column++){
+                Scanner input = new Scanner(System.in);
+                System.out.println("Is " + attendanceSheet[row][column].getName() + " here today?(y/n)");
+                attendanceSheet[row][column].setHere(input.nextBoolean());
             }
         }
     }
