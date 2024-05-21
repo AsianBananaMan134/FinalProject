@@ -102,7 +102,7 @@ public class Classroom {
      * has been called at least once.
      */
     public void getAttendance(){
-        System.out.println("\n----Attendance Sheet----");
+        System.out.println("Attendance Sheet: ");
         for (StudentClass[] row : attendanceSheet) {
             for (StudentClass column : row) {
                 if(column.getIsHere()) {
@@ -113,7 +113,7 @@ public class Classroom {
                 }
             }
         }
-        System.out.println("----End of Attendance Sheet----\n");
+        System.out.println("End of Attendance Sheet: ");
     }
     /**
      * Updates students(the arrayList not the object) with the all the student's names.
@@ -158,3 +158,4 @@ public class Classroom {
         }
     }
 }
+
