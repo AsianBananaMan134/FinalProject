@@ -82,14 +82,14 @@ public class Classroom {
     }
     /**
      * Sets the attendance in the class, whether
-     * they here or not by asking the teacher with Scanner.
+     * they here (true) or not (false) by asking the teacher with Scanner.
      * Preconditions: Chart is initialized with student objects.
      */
     public void setAttendance(){
         for(int row = 0; row < attendanceSheet.length; row++){
             for(int column = 0; column < attendanceSheet[row].length; column++){
                 Scanner input = new Scanner(System.in);
-                System.out.println("Is " + attendanceSheet[row][column].getName() + " here today?(y/n)");
+                System.out.println("Is " + attendanceSheet[row][column].getName() + " here today?(true/false)");
                 attendanceSheet[row][column].setHere(input.nextBoolean());
             }
         }
